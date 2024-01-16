@@ -1238,7 +1238,7 @@
           },
           "status": {
             "type": "string",
-            "description": "pet status in the store",
+            "description": "pet status in the store as expected.",
             "enum": [
               "available",
               "pending",
