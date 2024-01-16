@@ -70,7 +70,7 @@
               "type": "integer",
               "format": "int64"
             },
-            "example": 1234
+            "example": 123456
           },
            {
             "name": "username",
