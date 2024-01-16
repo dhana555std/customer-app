@@ -4,7 +4,11 @@ on:
   push:
      branches:
       - main
-     paths-ignore:
+  pull_request:
+    branches:
+    - main
+    
+    paths-ignore:
       - '.github/workflows/**'
       
 jobs:
