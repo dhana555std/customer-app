@@ -48,7 +48,7 @@
       "name": "users",
       "description": "Operations about user",
       "externalDocs": {
-        "description": "Find out more about our store",
+        "description": "Find out more about in our store",
         "url": "http://swagger.io"
       }
     }
