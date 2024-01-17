@@ -90,7 +90,7 @@
             "schema": {
               "type": "string"
               },
-            "example": "cookieValue"
+            "example": "myCookie"
           },
                    {
             "name": "header",
