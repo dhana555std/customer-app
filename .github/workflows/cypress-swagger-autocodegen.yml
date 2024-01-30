@@ -4,11 +4,7 @@ on:
   push:
      branches:
       - main
-  pull_request:
-    branches:
-    - main
-    
-    paths-ignore:
+     paths-ignore:
       - '.github/workflows/**'
       
 jobs:
@@ -32,46 +28,42 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v3
         with:
-          node-version: 20
+          node-version: 18
       - uses: jitterbit/get-changed-files@v1
         id: abc
         with:
           format: space-delimited
-          token: ${{ secrets.SWAGGER_REPO_TOKEN }}
-
-      - name: Get timestamp
-        id: get_timestamp
-        run: echo "timestamp=$(date +%Y-%m-%d_%H-%M-%S)" >> $GITHUB_ENV
+          token: ${{ secrets.SWAGGER_REPO_TOKEN }}  
 
       - name: logs of swagger file
         run: |
           echo "All:"
           echo "${{ steps.abc.outputs.all }}"
-
+          echo "Added:"
+          echo "${{ steps.abc.outputs.modified }}"
           echo "Added+Modified:"
           echo "${{ steps.abc.outputs.added_modified }}"
-
           IFS=' ' read -ra paths <<< "${{ steps.abc.outputs.added_modified }}"
-
-          for path in "${paths[@]}"; do
-            if [[ "$path" == *swagger.json* ]]; then
-              echo "Swagger.json found in path: $path"
-              pwd
-              cp swagger.json /tmp
+         
+            if [ -d swagger-docs ]; then
+              cp -r swagger-docs /tmp/swagger-docs
+              echo "swagger-docs folder found in path: $path"
               echo "this is the tmp directory path /tmp" 
               ls /tmp
+              ls /tmp/swagger-docs
               pwd
               mkdir -p /home/runner/projects
               cd /home/runner/projects
+              rm -rf /home/runner/projects/cypress-swagger
               git clone ${{ secrets.CYPRESS_SWAGGER_REPO_URL }}
               ls /home/runner/projects/
               ls /home/runner/projects/cypress-swagger
               cd /home/runner/projects/cypress-swagger
               npm install
               npm run start
-            else
-              echo "Swagger.json not found in path: $path"
+            else 
+              echo "swagger-docs does not folder"
             fi
-          done  
+           
 
       
