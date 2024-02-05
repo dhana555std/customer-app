@@ -223,42 +223,9 @@
         "requestBody": {
           "description": "Pet object that needs to be added to the store",
           "content": {
-            "application/json": {
+            "application/xml": {
               "schema": {
                 "$ref": "#/components/schemas/Pet"
-              },
-              "examples": {
-                "200": {
-                  "summary": "positive",
-                  "value": {
-                    "id": 1234,
-                    "catrgory": {
-                      "id": 1,
-                      "name": "German shepard"
-                    },
-                    "name": "Bruno",
-                    "photoUrls": [
-                      "https://germanshepard/burno.jpg"
-                    ],
-                    "tags": [
-                      {
-                        "id": 1,
-                        "name": "Tommy"
-                      }
-                    ],
-                    "status": "available"
-                  }
-                },
-                 "400": {
-                  "summary": "negative",
-                  "value": {
-                    "id": 1234,
-                    "catrgory": {
-                      "id": 1,
-                      "name": "German shepard"
-                    }
-                  }
-                }
               }
             }
           },
