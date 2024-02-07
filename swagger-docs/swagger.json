@@ -57,10 +57,10 @@
                     }
                   }
                 },
-                "example":{
-                  "userId":1,
-                  "id":101,
-                  "title":"eson dieod",
+                "example": {
+                  "userId": 1,
+                  "id": 101,
+                  "title": "eson dieod",
                   "body": "things are working."
                 }
               }
@@ -320,27 +320,6 @@
             "example": 1
           }
         ],
-        "responses": {
-          "200": {
-            "description": "successful operation",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/comments"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/comments": {
-      "get": {
-        "tags": [
-          "comments"
-        ],
-        "operationId": "getAllcomments",
-        "summary": "Get all the comments",
         "responses": {
           "200": {
             "description": "successful operation",
