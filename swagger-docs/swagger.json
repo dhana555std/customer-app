@@ -152,9 +152,6 @@
                 }
               }
             }
-          },
-          "400": {
-            "description": "Bad Request"
           }
         }
       },
@@ -322,27 +319,6 @@
             "example": 1
           }
         ],
-        "responses": {
-          "200": {
-            "description": "successful operation",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/comments"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/comments": {
-      "get": {
-        "tags": [
-          "comments"
-        ],
-        "operationId": "getAllcomments",
-        "summary": "Get all the comments",
         "responses": {
           "200": {
             "description": "successful operation",
